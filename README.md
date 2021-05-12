@@ -1,4 +1,4 @@
-#Timestable Practice
+# Timestable Practice
 
 A project I created using HTML and CSS back in December 2020 to practice multipltication tables. 
 
