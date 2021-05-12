@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Timestable Practice</title>
+</head>
+
+<body>
+<div class= "box">
+    <p id="headertext"><i>looks like it's timestable time</i></p>
+    <ul>
+        <div class="verticalline">
+        <h2>What is</h2>
+
+    <h1>
+        <h id="randomX"></h> × <h id="randomY"></h> ?
+    </h1>
+
+    <input type= "text" name="" id= "answer" onkeyup="myAnswer(this.value);">
+
+    <p id="demo"></p>
+    </ul>
+        </div>
+
+        <span style='font-size:100px;'>&#9671;</span>   
+</div>
+    
+    <script>
+            function myAnswer(value) {
+                if (value == answer){
+                    answer = randomTimes();
+
+                    score++; 
+                    document.getElementById("demo").innerHTML = "SCORE: " + score;
+                }
+            }
+
+            function randomNumber(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                
+                return Math.floor(Math.random() * (max-min +1) +min);
+            }
+            
+            function twoRandomNumbers () {
+                return {
+                    x: randomNumber(2,9),
+                    y: randomNumber(2,9)
+                };
+            }
+
+            function randomTimes() {
+                const rand = twoRandomNumbers();
+                const randX = rand.x; 
+                const randY = rand.y; 
+                const xY = randX * randY ; 
+
+                document.getElementById("randomX").innerHTML = randX;
+                document.getElementById("randomY").innerHTML = randY;
+                
+                let input = document.getElementById("answer");
+                input.focus();
+                input.value = "";
+                
+                return xY; 
+            }
+
+            let answer = randomTimes(); 
+
+            let score = 0;
+    </script>
+
+</body>
+</html>
